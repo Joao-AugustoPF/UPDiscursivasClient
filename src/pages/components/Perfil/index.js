@@ -229,19 +229,23 @@ export default function Perfil({ session, users }) {
 				}
 			})
 			.then(async (response) => {
-				await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/graphql`, {
-					query: print(MutationRegisterInfoUser),
-					variables: {
-						id: session?.id,
-						data: {
-							photo: response?.data[0]?.id
+				await axios.post(
+					`${process.env.NEXT_PUBLIC_API_URL}/graphql`,
+					{
+						query: print(MutationRegisterInfoUser),
+						variables: {
+							id: session?.id,
+							data: {
+								photo: response?.data[0]?.id
+							}
+						}
+					},
+					{
+						headers: {
+							Authorization: `Bearer ${session?.jwt}`
 						}
 					}
-				}, {
-					headers: {
-						Authorization: `Bearer ${session?.jwt}`
-					}
-				});
+				);
 				window.location.reload();
 			})
 			.catch((error) => {

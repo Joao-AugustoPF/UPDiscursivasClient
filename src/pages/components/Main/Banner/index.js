@@ -11,13 +11,18 @@ export const Banner = () => {
 						<S.LeftBasement>
 							<S.LeftInsideTextUpper>
 								<S.TextTitle>
-                  A melhor plataforma para ajudar em suas provas
+									A melhor plataforma para ajudar em suas
+									provas
 								</S.TextTitle>
 								<S.TextDescription>
-                  Venha conferir o melhor plano para ajudar você!
+									Venha conferir o melhor plano para ajudar
+									você!
 								</S.TextDescription>
-								<S.LeftInsideButton type="button" href="/assinaturas">
-                  Ver planos
+								<S.LeftInsideButton
+									type="button"
+									href="/assinaturas"
+								>
+									Ver planos
 								</S.LeftInsideButton>
 							</S.LeftInsideTextUpper>
 						</S.LeftBasement>

@@ -9,7 +9,7 @@ const createBillingSession = async (req, res) => {
 		customer,
 		return_url: `${process.env.NEXT_PUBLIC_AUTH_API_URL}`
 	});
-	res.redirect(session.url)
+	res.redirect(session.url);
 };
 
 export default createBillingSession;

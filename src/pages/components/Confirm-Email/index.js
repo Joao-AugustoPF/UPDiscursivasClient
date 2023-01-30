@@ -13,7 +13,6 @@ export default function ConfirmCode({ query }) {
 	const [oninput, setOnInput] = useState(false);
 	const [values, setValues] = useState();
 
-
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
@@ -50,20 +49,11 @@ export default function ConfirmCode({ query }) {
 	}, []);
 	return (
 		<>
-			{oninput && (
+			{oninput ? (
 				<>
 					<div>
 						<h4 className="text-warning">
 							E-mail enviado para confirmação!
-						</h4>
-					</div>
-				</>
-			)}
-			{success || query.success ? (
-				<>
-					<div>
-						<h4 className="text-success">
-							Email: {query?.email} confirmado com sucesso!
 						</h4>
 					</div>
 				</>
@@ -100,7 +90,6 @@ export default function ConfirmCode({ query }) {
 					<p>{emailuse}</p>
 				</>
 			)}
-			<div></div>
 		</>
 	);
 }

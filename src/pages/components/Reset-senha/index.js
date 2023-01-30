@@ -57,13 +57,19 @@ export const FormResetPassword = () => {
 
 		//Send the url of reset-password to the backend
 		await axios
-			.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/reset-password`, {
-				code: query.code,
-				password: values.password.target.value,
-				passwordConfirmation: values.confirm_password.target.value
-			}, {headers: {
-				Authorization: `Bearer ${session?.jwt}`
-			}})
+			.post(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/reset-password`,
+				{
+					code: query.code,
+					password: values.password.target.value,
+					passwordConfirmation: values.confirm_password.target.value
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${session?.jwt}`
+					}
+				}
+			)
 			.then((response) => {
 				console.log("A senha do seu usuário foi redefinida.");
 				signIn("credentials", {
@@ -108,7 +114,7 @@ export const FormResetPassword = () => {
 						<p className="text-danger">{fieldError?.password}</p>
 						{!!lengthpassword && (
 							<p className="text-danger" role="alert">
-                senha não pode ser menor do que 6 caracteres
+								senha não pode ser menor do que 6 caracteres
 							</p>
 						)}
 					</div>
@@ -122,14 +128,20 @@ export const FormResetPassword = () => {
 							onChange={(v) => handleInput("confirm_password", v)}
 							required
 						/>
-						<p className="text-danger">{fieldError?.confirm_password}</p>
+						<p className="text-danger">
+							{fieldError?.confirm_password}
+						</p>
 					</div>
 					<button
 						type="submit"
 						className="btn btn-primary mt-4"
 						disabled={loading}
 					>
-						{loading ? <FormLoading /> : <span>Confirmar senha</span>}
+						{loading ? (
+							<FormLoading />
+						) : (
+							<span>Confirmar senha</span>
+						)}
 					</button>
 				</form>
 			</div>

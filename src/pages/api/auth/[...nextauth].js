@@ -14,16 +14,16 @@ export const authOptions = {
 			},
 			async authorize(credentials) {
 				/**
-         * This function is used to define if the user is authenticated or not.
-         * If authenticated, the function should return an object contains the user data.
-         * If not, the function should return `null`.
-         */
+				 * This function is used to define if the user is authenticated or not.
+				 * If authenticated, the function should return an object contains the user data.
+				 * If not, the function should return `null`.
+				 */
 				// Return null if user data could not be retrieved
 				if (credentials == null) return null;
 				/**
-         * credentials is defined in the config above.
-         * We can expect it contains two properties: `email` and `password`
-         */
+				 * credentials is defined in the config above.
+				 * We can expect it contains two properties: `email` and `password`
+				 */
 				try {
 					const { user, jwt } = await signIn({
 						email: credentials.email,
@@ -32,7 +32,7 @@ export const authOptions = {
 					return { ...user, jwt };
 				} catch (error) {
 					// Sign In Fail
-          console.log(error)
+					console.log(error);
 					return null;
 				}
 			}

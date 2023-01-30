@@ -45,8 +45,8 @@ export const Register = () => {
 		},
 		onCompleted: async (user) => {
 			//If all succeeds it makes the sign-in
-			console.log(user)
-			console.log("AAAAAAA")
+			console.log(user);
+			console.log("AAAAAAA");
 			if (!error) {
 				await axios
 					.post(
@@ -88,8 +88,7 @@ export const Register = () => {
 						console.error("Ocorreu algum erro:", error.response);
 					});
 
-						setSuccess(true);
-
+				setSuccess(true);
 			}
 		}
 	});

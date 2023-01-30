@@ -63,13 +63,15 @@ const About = () => {
 
 			<div className="w-50">
 				<h4>
-          A <strong>UP DISCURSIVAS</strong> é uma plataforma para auxiliar você
-          a aprimorar suas respostas em peças e questões discursivas, seja em
-          provas de concurso público, seja em provas da <strong>OAB</strong>.
-          Com a <strong>UP DISCURSIVAS</strong>, você pode treinar a resolução
-          de peças e questões discursivas, obtendo seu percentual de desempenho,
-          quais itens deveriam constar na resposta, além de nota explicativa com
-          doutrina, jurisprudência e texto de lei!
+					A <strong>UP DISCURSIVAS</strong> é uma plataforma para
+					auxiliar você a aprimorar suas respostas em peças e questões
+					discursivas, seja em provas de concurso público, seja em
+					provas da <strong>OAB</strong>. Com a{" "}
+					<strong>UP DISCURSIVAS</strong>, você pode treinar a
+					resolução de peças e questões discursivas, obtendo seu
+					percentual de desempenho, quais itens deveriam constar na
+					resposta, além de nota explicativa com doutrina,
+					jurisprudência e texto de lei!
 				</h4>
 			</div>
 
@@ -134,7 +136,7 @@ const About = () => {
 							endIcon={<SendIcon />}
 							className="mt-3 mb-5"
 						>
-              Enviar
+							Enviar
 						</Button>
 					</Stack>
 				</form>

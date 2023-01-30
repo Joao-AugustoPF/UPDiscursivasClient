@@ -4,7 +4,7 @@ async function protectedRoutes(context) {
 	const session = await getSession(context);
 
 	if (!session) {
-		return
+		return;
 	}
 
 	return session;

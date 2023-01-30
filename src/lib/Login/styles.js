@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.main`
-  display: flex;
+	display: flex;
 `;

@@ -49,11 +49,13 @@ class Footer extends Component {
 						</section>
 						<div className="d-flex flex-column justify-content-center align-items-center">
 							<Link href="/politicas">
-								<a className="text-danger text-decoration-none">Políticas</a>
+								<a className="text-danger text-decoration-none">
+									Políticas
+								</a>
 							</Link>
 							<Link href="/termos-de-uso">
 								<a className="text-danger text-decoration-none">
-                  Termos de uso
+									Termos de uso
 								</a>
 							</Link>
 						</div>
@@ -95,9 +97,12 @@ class Footer extends Component {
 						</section>
 					</div>
 					<div className="text-center d-flex flex-column">
-            © 2022 Copyright:
-						<a className="text-white" href="https://updiscursivas.com.br/">
-              updiscursivas.com.br
+						© 2022 Copyright:
+						<a
+							className="text-white"
+							href="https://updiscursivas.com.br/"
+						>
+							updiscursivas.com.br
 						</a>
 					</div>
 				</footer>

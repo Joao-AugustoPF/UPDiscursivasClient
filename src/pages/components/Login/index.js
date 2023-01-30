@@ -83,7 +83,9 @@ export const Login = () => {
 						<input
 							type="email"
 							name="email"
-							className={`form-control ${formError && "is-invalid"} `}
+							className={`form-control ${
+								formError && "is-invalid"
+							} `}
 							id="exampleInputEmail1"
 							aria-describedby="emailHelp"
 							onChange={(v) => handleInput("email", v)}
@@ -97,7 +99,9 @@ export const Login = () => {
 						<input
 							type="password"
 							name="password"
-							className={`form-control ${formError && "is-invalid"} `}
+							className={`form-control ${
+								formError && "is-invalid"
+							} `}
 							id="exampleInputPassword1"
 							onChange={(v) => handleInput("password", v)}
 							placeholder="Digite sua senha"
@@ -107,11 +111,11 @@ export const Login = () => {
 					</div>
 					<div className="mt-3">
 						<Link href="/esqueceu-senha" passHref>
-              Esqueceu a senha?
+							Esqueceu a senha?
 						</Link>
 					</div>
 					<button type="submit" className="btn btn-primary mt-4">
-            Logar
+						Logar
 					</button>
 				</form>
 				<div className="mt-4">

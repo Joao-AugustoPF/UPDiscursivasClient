@@ -297,7 +297,7 @@ export default function MinhaAssinatura({ session, users }) {
 										)}
 									</Link>
 									<div style={{ fontSize: "12px" }}>
-										<p style={{marginBottom: "0px"}}>
+										<p style={{ marginBottom: "0px" }}>
 											*Não será cobrado mensalmente após
 											cancelamento
 										</p>

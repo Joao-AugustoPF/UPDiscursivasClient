@@ -81,7 +81,6 @@ export default function Questão({ perguntas }) {
 	//Just to have more control of the handle answer
 	const putAnswer = () => {
 		finalScore();
-
 	};
 
 	return (
@@ -197,7 +196,7 @@ export default function Questão({ perguntas }) {
 							</div>
 							<div className="col my-auto">
 								<p>Você acertou: {final}</p>
-								<ToastContainer/>
+								<ToastContainer />
 							</div>
 							<div className="">
 								<button

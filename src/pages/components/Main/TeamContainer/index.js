@@ -12,8 +12,8 @@ export const TeamContainer = () => {
 				<S.InsideContainer>
 					<h2>Produtores</h2>
 					<p>
-            Nesta sessão é possível conhecer os produtores da plataforma UP
-            Discursivas.
+						Nesta sessão é possível conhecer os produtores da
+						plataforma UP Discursivas.
 					</p>
 
 					<S.GridContainer>
@@ -25,12 +25,20 @@ export const TeamContainer = () => {
 										target="_blank"
 										rel="noreferrer"
 									>
-										<Image width="200px" height="200px" src={person2} />
+										<Image
+											width="200px"
+											height="200px"
+											src={person2}
+										/>
 									</a>
 								</S.BoxProdutorImage>
 								<S.ProdutorInfo>
-									<S.TitleName>Antonio E. Fagundes</S.TitleName>
-									<S.TitleFunction>Produtor principal</S.TitleFunction>
+									<S.TitleName>
+										Antonio E. Fagundes
+									</S.TitleName>
+									<S.TitleFunction>
+										Produtor principal
+									</S.TitleFunction>
 								</S.ProdutorInfo>
 							</S.ContainerGrid>
 						</S.GridItem>
@@ -42,12 +50,18 @@ export const TeamContainer = () => {
 										target="_blank"
 										rel="noreferrer"
 									>
-										<Image width="200px" height="200px" src={person} />
+										<Image
+											width="200px"
+											height="200px"
+											src={person}
+										/>
 									</a>
 								</S.BoxProdutorImage>
 								<S.ProdutorInfo>
 									<S.TitleName>João Augusto</S.TitleName>
-									<S.TitleFunction>Desenvolvedor</S.TitleFunction>
+									<S.TitleFunction>
+										Desenvolvedor
+									</S.TitleFunction>
 								</S.ProdutorInfo>
 							</S.ContainerGrid>
 						</S.GridItem>

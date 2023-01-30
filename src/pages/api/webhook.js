@@ -91,7 +91,9 @@ async function Webhook(req, res) {
 									data.lines.data[0].plan.interval_count === 1
 										? "mensal"
 										: "trimestral",
-								endDate: new Date(data.lines.data[0].period.end * 1000),
+								endDate: new Date(
+									data.lines.data[0].period.end * 1000
+								),
 								subscriptionid: data.lines.data[0].subscription,
 								subiscancel: false
 							}

@@ -13,7 +13,7 @@ const nextConfig = {
 			}
 		]
 	},
-	pageExtensions: ["js"],
+	pageExtensions: ["js"]
 };
 
 module.exports = nextConfig;

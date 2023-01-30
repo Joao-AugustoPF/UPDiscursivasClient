@@ -202,7 +202,7 @@ export default function Prova({ perguntas }) {
 							</div>
 							<div className="col my-auto">
 								<p>Você acertou: {final}</p>
-								<ToastContainer/>
+								<ToastContainer />
 							</div>
 							<div className="">
 								<button

@@ -47,7 +47,7 @@ export const FormForgotPassword = () => {
 			.catch((error) => {
 				console.log("Ocorreu algum erro:", error.response);
 			});
-		console.log("opa")
+		console.log("opa");
 	};
 
 	//Handle the input from the frontend in a single function
