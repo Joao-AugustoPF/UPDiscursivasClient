@@ -65,10 +65,10 @@ export const LeftInsideTextUpper = styled.div`
 `;
 
 export const LeftInsideButton = styled.a`
-	background-color: #3dd1e7;
+	background-color: #f6ecfc;
 	border: 0 solid #e5e7eb;
 	box-sizing: border-box;
-	color: #000000;
+	color: #fff;
 	display: flex;
 	font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
 		Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
