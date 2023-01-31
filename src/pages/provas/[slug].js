@@ -209,7 +209,7 @@ export default function Prova({ perguntas }) {
 									className="btn btn-info text-white"
 									onClick={() =>
 										download(
-											`${process.env.NEXT_PUBLIC_API_URL}${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`,
+											`${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`,
 											`${provas?.perguntas?.attributes?.title}.pdf`
 										)
 									}
