@@ -65,7 +65,7 @@ export const LeftInsideTextUpper = styled.div`
 `;
 
 export const LeftInsideButton = styled.a`
-	background-color: #f6ecfc;
+	background-color: #d20c33;
 	border: 0 solid #e5e7eb;
 	box-sizing: border-box;
 	color: #fff;
@@ -107,6 +107,7 @@ export const LeftInsideButton = styled.a`
 	}
 
 	&:hover {
+		color: #fff;
 		&::after {
 			bottom: 2px;
 			left: 2px;
