@@ -58,7 +58,7 @@ export const FormResetPassword = () => {
 		//Send the url of reset-password to the backend
 		await axios
 			.post(
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/reset-password`,
+				`${process.env.NEXT_PUBLIC_API_URL}/api/auth/reset-password`,
 				{
 					code: query.code,
 					password: values.password.target.value,
