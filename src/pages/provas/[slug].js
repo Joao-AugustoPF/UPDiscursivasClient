@@ -195,7 +195,7 @@ export default function Prova({ perguntas }) {
 								<button
 									onClick={putAnswer}
 									type="button"
-									className="btn btn-success"
+									className="btn btn-danger"
 								>
 									Corrigir
 								</button>
