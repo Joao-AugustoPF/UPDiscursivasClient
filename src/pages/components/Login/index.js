@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { signInValidate } from "../../../utils/validations";
 
 //Login Page
-export const Login = () => {
+export const Login = ({session}) => {
 	//Sets the user email and password
 	const [values, setValues] = useState({
 		email: { target: "" },
@@ -18,10 +18,9 @@ export const Login = () => {
 	const [fieldError, setfieldError] = useState({});
 	//-----------------------------
 
-	const router = useRouter();
+	//const router = useRouter();
 
 	//Session of user
-	const { data: session } = useSession();
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -62,12 +61,12 @@ export const Login = () => {
 		setValues((s) => ({ ...s, [field]: value }));
 	};
 
-	useEffect(() => {
-		//If user is logged send to the profile page
-		if (session) {
-			router.push("/perfil");
-		}
-	}, [session, router]);
+	// useEffect(() => {
+	// 	//If user is logged send to the profile page
+	// 	if (session) {
+	// 		router.push("/perfil");
+	// 	}
+	// }, [session, router]);
 
 	return (
 		<>
