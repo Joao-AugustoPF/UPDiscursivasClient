@@ -6,14 +6,9 @@ async function protectedRoutes(context) {
 	if (session) {
 		context.res.setHeader("Location", "/perfil");
 		context.res.statusCode = 200;
+		return session;
 	}
-
-	if (!session) {
-		context.res.setHeader("Location", "/login");
-		context.res.statusCode = 302;
-	}
-
-	return session;
+	return
 }
 
 export default protectedRoutes;
