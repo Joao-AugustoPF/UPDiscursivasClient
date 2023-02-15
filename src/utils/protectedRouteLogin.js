@@ -8,7 +8,6 @@ async function protectedRoutes(context) {
 		context.res.statusCode = 200;
 		return session;
 	}
-	return
 }
 
 export default protectedRoutes;
