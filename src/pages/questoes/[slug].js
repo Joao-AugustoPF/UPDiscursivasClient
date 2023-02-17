@@ -184,8 +184,8 @@ export default function Questão({ perguntas }) {
 							</div>
 						)}
 
-						<div className="w-50 m-auto d-flex flex pb-5">
-							<div className="col">
+						<div className="w-50 m-auto d-flex flex-column pb-5">
+							<div className="m-auto">
 								<button
 									onClick={putAnswer}
 									type="button"
@@ -194,17 +194,16 @@ export default function Questão({ perguntas }) {
 									Corrigir
 								</button>
 							</div>
-							<div className="col my-auto">
+							<div className="m-auto">
 								<p>Você acertou: {final}</p>
 								<ToastContainer />
 							</div>
-							<div className="">
+							<div className="m-auto">
 								<button
 									className="btn btn-info text-white"
 									onClick={() =>
 										download(
-											`${process.env.NEXT_PUBLIC_API_URL}${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`,
-											`${provas?.perguntas?.attributes?.title}.pdf`
+											`${process.env.NEXT_PUBLIC_API_URL}${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`
 										)
 									}
 								>

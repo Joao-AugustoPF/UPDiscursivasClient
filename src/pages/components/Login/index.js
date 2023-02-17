@@ -48,6 +48,7 @@ export const Login = ({session}) => {
 			password: values.password.target.value
 		});
 		if (result.ok) {
+			window.location.reload()
 			return;
 		}
 		//-------------------------------

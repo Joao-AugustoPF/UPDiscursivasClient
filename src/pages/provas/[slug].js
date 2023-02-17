@@ -190,8 +190,8 @@ export default function Prova({ perguntas }) {
 							</div>
 						)}
 
-						<div className="w-50 m-auto d-flex flex pb-5">
-							<div className="col">
+						<div className="w-50 m-auto d-flex flex-column pb-5">
+							<div className="m-auto">
 								<button
 									onClick={putAnswer}
 									type="button"
@@ -200,17 +200,16 @@ export default function Prova({ perguntas }) {
 									Corrigir
 								</button>
 							</div>
-							<div className="col my-auto">
+							<div className="m-auto">
 								<p>Você acertou: {final}</p>
 								<ToastContainer />
 							</div>
-							<div className="">
+							<div className="m-auto">
 								<button
 									className="btn btn-info text-white"
 									onClick={() =>
 										download(
-											`${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`,
-											`${provas?.perguntas?.attributes?.title}.pdf`
+											`${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`
 										)
 									}
 								>

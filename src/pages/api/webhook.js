@@ -2,7 +2,7 @@
 import { print } from "graphql";
 import gql from "graphql-tag";
 import { MutationSettingPlan } from "../../graphql/mutations/registerBilling";
-const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_PRIVATE_KEY);
+const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_PRODUCTION_PRIVATE_KEY);
 const axios = require("axios");
 const { buffer } = require("micro");
 export const config = {
