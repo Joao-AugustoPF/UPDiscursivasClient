@@ -57,7 +57,7 @@ export const Register = () => {
 					)
 					.then(async () => {
 						console.log("O usuário recebeu um email");
-						const customerInfo = await axios.get(
+						const customerInfo = await axios.post(
 							`${process.env.NEXT_PUBLIC_AUTH_API_URL}/api/customerstripe/?email=${values.email.target.value}&name=${values.username.target.value}`,
 							{
 								headers: {
