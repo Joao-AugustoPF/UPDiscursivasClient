@@ -73,8 +73,6 @@ export default function MinhaAssinatura({ session, users }) {
 					}
 				}
 			);
-			console.log(usuario);
-			console.log(CancelPlan);
 			setOpen(false);
 			window.location.reload();
 		} else {
@@ -93,8 +91,6 @@ export default function MinhaAssinatura({ session, users }) {
 					}
 				}
 			);
-			console.log(usuario);
-			console.log(CancelPlan);
 			setOpenReactivate(false);
 			window.location.reload();
 		}

@@ -45,8 +45,6 @@ export const Register = () => {
 		},
 		onCompleted: async (user) => {
 			//If all succeeds it makes the sign-in
-			console.log(user);
-			console.log("AAAAAAA");
 			if (!error) {
 				await axios
 					.post(

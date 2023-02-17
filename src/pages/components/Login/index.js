@@ -19,7 +19,6 @@ export const Login = ({session}) => {
 	//-----------------------------
 
 	//const router = useRouter();
-	console.log(session)
 	//Session of user
 
 	const handleSubmit = async (event) => {

@@ -31,7 +31,6 @@ export const FormForgotPassword = () => {
 		}
 
 		setfieldError({});
-		console.log(process.env.NEXT_PUBLIC_API_ADMIN_STRAPI);
 		//Send the url of forgot-password to the backend
 		await axios
 			.post(
@@ -47,7 +46,6 @@ export const FormForgotPassword = () => {
 			.catch((error) => {
 				console.log("Ocorreu algum erro:", error.response);
 			});
-		console.log("opa");
 	};
 
 	//Handle the input from the frontend in a single function

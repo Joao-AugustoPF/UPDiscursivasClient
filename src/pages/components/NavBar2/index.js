@@ -61,7 +61,6 @@ export default function ResponsiveExample() {
 			}
 		);
 
-		console.log(user);
 		//---------------------------------------------
 		//---------------------------------------------
 

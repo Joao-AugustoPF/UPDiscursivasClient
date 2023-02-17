@@ -10,7 +10,6 @@ const Assinaturas = ({ session, users }) => {
 	const [load, setLoad] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-	//console.log(users)
 	//This handle when a user makes a payment
 	const handleCheckout = async (param) => {
 		setLoad(true);
@@ -31,7 +30,6 @@ const Assinaturas = ({ session, users }) => {
 		setLoad(false);
 	};
 
-	//console.log(session)
 
 	useEffect(() => {
 		//value();

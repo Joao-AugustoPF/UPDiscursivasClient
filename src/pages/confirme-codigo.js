@@ -12,7 +12,6 @@ export default function ConfirmCode({ query }) {
 }
 
 export async function getServerSideProps(context) {
-	console.log(context.query);
 	const query = context.query;
 
 	return {

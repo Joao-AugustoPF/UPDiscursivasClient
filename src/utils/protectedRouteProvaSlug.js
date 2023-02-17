@@ -29,7 +29,6 @@ async function protectedRoutes(context) {
 			query: QueryProvas,
 			variables: { slug }
 		});
-		//console.log(slug);
 		const posts = data?.provas?.data;
 		const perguntas = posts[0];
 		return {

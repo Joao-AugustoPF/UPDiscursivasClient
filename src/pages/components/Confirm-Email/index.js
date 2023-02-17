@@ -17,7 +17,6 @@ export default function ConfirmCode({ query }) {
 		event.preventDefault();
 
 		setLoading(true);
-		console.log(values);
 		//Send the url of forgot-password to the backend
 		await axios
 			.post(
@@ -39,7 +38,6 @@ export default function ConfirmCode({ query }) {
 				setemailUsed("E-mail já confirmado!");
 				setLoading(false);
 			});
-		console.log("opa");
 	};
 
 	useEffect(() => {
