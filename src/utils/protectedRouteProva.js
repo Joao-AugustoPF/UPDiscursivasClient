@@ -7,7 +7,9 @@ async function protectedRoutes(context) {
 	const session = await getSession(context);
 	const apolloClient = initializeApollo(null, session);
 	if (!session) {
-		return;
+		context.res.setHeader("Location", "/login");
+		context.res.statusCode = 302;
+		return { session: null, provas: null }
 	}
 
 	const users = await axios.get(

@@ -525,7 +525,16 @@ export default function Provas({ session, provas }) {
 //Get the session and the "Tests" from the backend
 export async function getServerSideProps(context) {
 	const { session, provas } = await protectedRoutes(context);
-	return {
-		props: { session: session, provas: provas }
-	};
+
+	if(session){
+		return {
+			props: { session: session, provas: provas }
+		};
+	} else {
+		return {
+			props: {session: null, provas: null}
+		}
+	}
+
+
 }
