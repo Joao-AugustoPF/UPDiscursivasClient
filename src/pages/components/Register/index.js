@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { MutationRegister } from "../../../graphql/mutations/register";
 import axios from "axios";
+import { print } from "graphql";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { MutationRegisterBilling } from "../../../graphql/mutations/registerBilling";
@@ -66,23 +67,24 @@ export const Register = () => {
 							}
 						);
 
-						//Creates the user billingID in the backend. Why not use the same function to creates the user parameters? The function createUser from GraphQL doesn't support new entries than the default ones
-
-						const graphcms = new GraphQLClient(
+						await axios.post(
 							`${process.env.NEXT_PUBLIC_API_URL}/graphql`,
+							{
+								query: print(MutationSettingPlan),
+								variables: {
+									id: user?.register?.user?.id,
+									data: {
+										billingID:
+											customerInfo?.data?.customer?.id
+									}
+								}
+							},
 							{
 								headers: {
 									Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_ADMIN_STRAPI}`
 								}
 							}
 						);
-
-						await graphcms.request(MutationRegisterBilling, {
-							id: user?.register?.user?.id,
-							data: {
-								billingID: customerInfo?.data?.customer?.id
-							}
-						});
 					})
 					.catch((error) => {
 						console.error("Ocorreu algum erro:", error.response);
