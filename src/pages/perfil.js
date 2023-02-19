@@ -1,5 +1,5 @@
 import Profile from "./components/Perfil/index";
-import protectedRoutes from "../utils/protectedRoutes";
+import protectedRoutes from "../utils/protectedRoutePerfil";
 import axios from "axios";
 
 export default function Perfil({ sessions, users }) {
@@ -24,7 +24,7 @@ export default function Perfil({ sessions, users }) {
 export async function getServerSideProps(context) {
 	const { session, users } = await protectedRoutes(context);
 	if (!session) {
-		return { props: {} };
+		return { props: { sessions: null, users: null } };
 	} else {
 		return {
 			props: { sessions: session, users: users }
