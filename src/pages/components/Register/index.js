@@ -51,7 +51,7 @@ export const Register = () => {
 			if (!error) {
 				await axios
 					.post(
-						`${process.env.NEXT_PUBLIC_AUTH_API_URL}/api/auth/send-email-confirmation`,
+						`${process.env.NEXT_PUBLIC_API_URL}/api/auth/send-email-confirmation`,
 						{
 							email: values.email.target.value // user's email
 						}
