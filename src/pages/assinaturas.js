@@ -30,7 +30,6 @@ const Assinaturas = ({ session, users }) => {
 		setLoad(false);
 	};
 
-
 	useEffect(() => {
 		//value();
 		//getUsers()

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { signInValidate } from "../../../utils/validations";
 
 //Login Page
-export const Login = ({session}) => {
+export const Login = ({ session }) => {
 	//Sets the user email and password
 	const [values, setValues] = useState({
 		email: { target: "" },
@@ -47,7 +47,7 @@ export const Login = ({session}) => {
 			password: values.password.target.value
 		});
 		if (result.ok) {
-			window.location.reload()
+			window.location.reload();
 			return;
 		}
 		//-------------------------------

@@ -112,7 +112,6 @@ export default function Perfil({ session, users }) {
 						}
 					}
 				);
-
 			};
 
 			await sendInfo();
@@ -174,7 +173,6 @@ export default function Perfil({ session, users }) {
 			}
 		}
 	});
-
 
 	const DifferenceTIme =
 		new Date(users?.endDate).getTime() - new Date().getTime();

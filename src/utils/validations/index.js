@@ -1,7 +1,12 @@
 import Joi from "joi";
 
 const fieldsValidations = {
-	username: Joi.string().min(4).required().messages({ "string.min": `"Nome" não pode ter menos de 4 caracteres` }),
+	username: Joi.string()
+		.min(4)
+		.required()
+		.messages({
+			"string.min": `"Nome" não pode ter menos de 4 caracteres`
+		}),
 	email: Joi.string()
 		.email({ tlds: { allow: false } })
 		.required(),

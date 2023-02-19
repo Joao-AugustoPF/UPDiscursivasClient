@@ -15,7 +15,9 @@ import { GraphQLClient } from "graphql-request";
 //Register Page
 
 //Loads the stripe outside the component
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PRODUCTION_PUBLIC_KEY);
+const stripePromise = loadStripe(
+	process.env.NEXT_PUBLIC_STRIPE_PRODUCTION_PUBLIC_KEY
+);
 
 export const Register = () => {
 	//Sets the form and field error which appears in the frontend

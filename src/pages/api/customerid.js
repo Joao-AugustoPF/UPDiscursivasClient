@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
-const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_PRODUCTION_PRIVATE_KEY);
+const stripe = require("stripe")(
+	process.env.NEXT_PUBLIC_STRIPE_PRODUCTION_PRIVATE_KEY
+);
 
 export const getCustomerByID = async (req, res) => {
 	const {

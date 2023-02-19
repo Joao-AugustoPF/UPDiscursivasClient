@@ -9,7 +9,7 @@ async function protectedRoutes(context) {
 	if (!session) {
 		context.res.setHeader("Location", "/login");
 		context.res.statusCode = 302;
-		return { session: null, provas: null }
+		return { session: null, provas: null };
 	}
 
 	const users = await axios.get(

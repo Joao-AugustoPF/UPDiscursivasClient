@@ -526,15 +526,13 @@ export default function Provas({ session, provas }) {
 export async function getServerSideProps(context) {
 	const { session, provas } = await protectedRoutes(context);
 
-	if(session){
+	if (session) {
 		return {
 			props: { session: session, provas: provas }
 		};
 	} else {
 		return {
-			props: {session: null, provas: null}
-		}
+			props: { session: null, provas: null }
+		};
 	}
-
-
 }
