@@ -7,7 +7,7 @@ import axios from "axios";
 import { print } from "graphql";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { MutationRegisterBilling } from "../../../graphql/mutations/registerBilling";
+import { MutationRegisterBilling, MutationSettingPlan } from "../../../graphql/mutations/registerBilling";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import { signUpValidate } from "../../../utils/validations";
