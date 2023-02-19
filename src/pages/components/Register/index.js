@@ -87,7 +87,7 @@ export const Register = () => {
 						);
 					})
 					.catch((error) => {
-						console.error("Ocorreu algum erro:", error.response);
+						console.error("Ocorreu algum erro:", error);
 					});
 
 				setSuccess(true);
