@@ -22,20 +22,12 @@ export default function Perfil({ sessions, users }) {
 
 //It set the user session "if logged" to the props of the page
 export async function getServerSideProps(context) {
-	const session = await protectedRoutes(context);
+	const { session, users } = await protectedRoutes(context);
 	if (!session) {
 		return { props: {} };
 	} else {
-		const users = await axios.get(
-			`${process.env.NEXT_PUBLIC_API_URL}/api/users/me?populate=*`,
-			{
-				headers: {
-					Authorization: `Bearer ${session?.jwt}`
-				}
-			}
-		);
 		return {
-			props: { sessions: session, users: users.data }
+			props: { sessions: session, users: users }
 		};
 	}
 }
