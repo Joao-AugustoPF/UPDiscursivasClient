@@ -1,8 +1,16 @@
 import Profile from "./components/Perfil/index";
 import protectedRoutes from "../utils/protectedRoutePerfil";
 import axios from "axios";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Perfil({ sessions, users }) {
+	const router = useRouter()
+	useEffect(() => {
+		if(!sessions) {
+			router.push('/login')
+		}
+	}, [sessions]);
 	return (
 		<>
 			<div
