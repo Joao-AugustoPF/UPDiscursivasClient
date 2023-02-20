@@ -203,7 +203,7 @@ export default function Questão({ perguntas }) {
 									className="btn btn-info text-white"
 									onClick={() =>
 										download(
-											`${process.env.NEXT_PUBLIC_API_URL}${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`
+											`${process.env.NEXT_PUBLIC_API_URL}${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}.pdf`
 										)
 									}
 								>

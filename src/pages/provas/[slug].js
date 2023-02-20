@@ -209,7 +209,7 @@ export default function Prova({ perguntas }) {
 									className="btn btn-info text-white"
 									onClick={() =>
 										download(
-											`${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}`
+											`${provas?.perguntas?.attributes?.pdf?.data?.attributes?.url}.pdf`
 										)
 									}
 								>
