@@ -29,11 +29,11 @@ export default function ConfirmCode({ query }) {
 			router.push('/login')
 		}
 	};
-	handleConfirmation();
 	useEffect(() => {
 		if (!query.confirmation) {
 			router.push("/");
 		}
+		handleConfirmation();
 	}, []);
 	return (
 		<>
