@@ -15,6 +15,7 @@ export default function ConfirmCode({ query }) {
 
 	const handleConfirmation = async () => {
 		if (query.confirmation) {
+			setSuccess(true)
 			try {
 				await axios
 					.get(
@@ -25,7 +26,6 @@ export default function ConfirmCode({ query }) {
 				setSuccess(false);
 				return
 			}
-			setSuccess(true)
 			router.push('/login')
 		}
 	};
