@@ -20,13 +20,14 @@ export default function ConfirmCode({ query }) {
 				await axios
 					.get(
 						`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
-					)
+					).then(() => {
+						router.push("/login")
+					})
 			} catch (error) {
 				console.log(error);
 				setSuccess(false);
 				return
 			}
-			router.push('/login')
 		}
 	};
 	useEffect(() => {
@@ -34,6 +35,9 @@ export default function ConfirmCode({ query }) {
 			router.push("/");
 		}
 		handleConfirmation();
+		if(success) {
+			//router.push("/login")
+		}
 	}, []);
 	return (
 		<>
