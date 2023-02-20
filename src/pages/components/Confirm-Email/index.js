@@ -20,10 +20,8 @@ export default function ConfirmCode({ query }) {
 					.get(
 						`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
 					)
-					.then(() => {
-						setSuccess(true);
-						router.push('/login')
-					});
+					setSuccess(true);
+					router.push('/login')
 			} catch (error) {
 				console.log(error);
 				setSuccess(false);
