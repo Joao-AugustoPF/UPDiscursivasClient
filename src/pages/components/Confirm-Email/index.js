@@ -13,79 +13,42 @@ export default function ConfirmCode({ query }) {
 	const [oninput, setOnInput] = useState(false);
 	const [values, setValues] = useState();
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-
-		setLoading(true);
-		//Send the url of forgot-password to the backend
-		await axios
-			.post(
-				`${process.env.NEXT_PUBLIC_API_URL}/api/auth/send-email-confirmation`,
-				{
-					email: values // user's email
-				}
-			)
-			.then(() => {
-				console.log("O usuário recebeu um email!");
-				//setSuccess(true);
-				setOnInput(true);
-			})
-			.catch((error) => {
-				console.log("Ocorreu algum erro:", error);
-				if (error.response.data === "Method Not Allowed") {
-					setemailUsed("E-mail já confirmado!");
-				}
-				setemailUsed("E-mail já confirmado!");
-				setLoading(false);
-			});
+	const handleConfirmation = async () => {
+		if (query.confirmation) {
+			try {
+				await axios
+					.post(
+						`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
+					)
+					.then(() => {
+						setSuccess(true);
+						router.push('/login')
+					});
+			} catch (error) {
+				console.log(error);
+				setSuccess(false);
+			}
+		}
 	};
-
+	handleConfirmation();
 	useEffect(() => {
-		// if (!query.confirmation) {
-		// 	router.push("/");
-		// }
+		if (!query.confirmation) {
+			router.push("/");
+		}
 	}, []);
 	return (
 		<>
-			{oninput ? (
+			{success ? (
 				<>
 					<div>
-						<h4 className="text-warning">
-							E-mail enviado para confirmação!
-						</h4>
+						<h4 className="text-success">E-mail confirmado!</h4>
 					</div>
 				</>
 			) : (
 				<>
-					<form onSubmit={handleSubmit}>
-						<div className="form-group">
-							<label htmlFor="exampleInputEmail1">E-mail</label>
-							<input
-								type="email"
-								name="email"
-								className="form-control"
-								id="exampleInputEmail1"
-								aria-describedby="emailHelp"
-								placeholder="Digite seu email"
-								onChange={(v) => setValues(v.target.value)}
-								required
-							/>
-						</div>
-
-						<button
-							type="submit"
-							className="btn btn-primary mt-4"
-							disabled={loading}
-						>
-							{loading ? (
-								<FormLoading />
-							) : (
-								<span>Enviar E-mail</span>
-							)}
-						</button>
-					</form>
-					<p>{error}</p>
-					<p>{emailuse}</p>
+					<div>
+						<h5 className="text-warning">Aguardando confirmação de e-mail...</h5>
+					</div>
 				</>
 			)}
 		</>
