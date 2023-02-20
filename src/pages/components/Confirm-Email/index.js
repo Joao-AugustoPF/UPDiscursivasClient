@@ -17,7 +17,7 @@ export default function ConfirmCode({ query }) {
 		if (query.confirmation) {
 			try {
 				await axios
-					.post(
+					.get(
 						`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
 					)
 					.then(() => {
