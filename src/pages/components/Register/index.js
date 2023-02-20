@@ -7,7 +7,10 @@ import axios from "axios";
 import { print } from "graphql";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { MutationRegisterBilling, MutationSettingPlan } from "../../../graphql/mutations/registerBilling";
+import {
+	MutationRegisterBilling,
+	MutationSettingPlan
+} from "../../../graphql/mutations/registerBilling";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import { signUpValidate } from "../../../utils/validations";
@@ -26,6 +29,7 @@ export const Register = () => {
 	const [formError, setformError] = useState("");
 	const [lengthpassword, setLengthpassword] = useState("");
 	const [success, setSuccess] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	//Sets the username, email, password and confirm password
 	const [values, setValues] = useState({
@@ -125,6 +129,7 @@ export const Register = () => {
 		try {
 			//Gets the user info that was created before
 			//Creates the user in the backend
+			setLoading(true)
 			await createUser({
 				variables: {
 					input: {
@@ -136,6 +141,7 @@ export const Register = () => {
 			});
 		} catch (error) {
 			console.log(error);
+			setLoading(false)
 			return;
 		}
 	};
@@ -165,106 +171,125 @@ export const Register = () => {
 					</>
 				) : (
 					<>
-						<div>
-							{!!formError && (
-								<div
-									className="alert alert-danger"
-									role="alert"
-								>
-									{formError}
+						{loading ? (
+							<>
+								<div>
+									<h4 className="text-warning">
+										Enviando as informações e aguardando
+										envio de E-mail...
+									</h4>
 								</div>
-							)}
-							<form onSubmit={handleSubmit}>
-								<div className="form-group">
-									<label htmlFor="exampleInputName">
-										Nome
-									</label>
-									<input
-										className="form-control"
-										name="username"
-										type="text"
-										placeholder="Digite seu nome"
-										onChange={(v) =>
-											handleInput("username", v)
-										}
-										required
-									/>
-									<p className="text-danger">
-										{fieldError?.username}
-									</p>
-									<label htmlFor="exampleInputEmail1">
-										Email
-									</label>
-									<input
-										type="email"
-										name="email"
-										className="form-control"
-										id="exampleInputEmail1"
-										aria-describedby="emailHelp"
-										placeholder="Digite seu email"
-										onChange={(v) =>
-											handleInput("email", v)
-										}
-										required
-									/>
-									<p className="text-danger">
-										{fieldError?.email}
-									</p>
-								</div>
-								<div className="form-group">
-									<label htmlFor="exampleInputPassword1">
-										Senha
-									</label>
-									<input
-										type="password"
-										name="password"
-										className="form-control"
-										id="exampleInputPassword1"
-										placeholder="Digite sua senha"
-										onChange={(v) =>
-											handleInput("password", v)
-										}
-										required
-									/>
-									<p className="text-danger">
-										{fieldError?.password}
-									</p>
-									{!!lengthpassword && (
-										<p className="text-danger" role="alert">
-											senha não pode ser menor do que 6
-											caracteres
-										</p>
+							</>
+						) : (
+							<>
+								<div>
+									{!!formError && (
+										<div
+											className="alert alert-danger"
+											role="alert"
+										>
+											{formError}
+										</div>
 									)}
+									<form onSubmit={handleSubmit}>
+										<div className="form-group">
+											<label htmlFor="exampleInputName">
+												Nome
+											</label>
+											<input
+												className="form-control"
+												name="username"
+												type="text"
+												placeholder="Digite seu nome"
+												onChange={(v) =>
+													handleInput("username", v)
+												}
+												required
+											/>
+											<p className="text-danger">
+												{fieldError?.username}
+											</p>
+											<label htmlFor="exampleInputEmail1">
+												Email
+											</label>
+											<input
+												type="email"
+												name="email"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder="Digite seu email"
+												onChange={(v) =>
+													handleInput("email", v)
+												}
+												required
+											/>
+											<p className="text-danger">
+												{fieldError?.email}
+											</p>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputPassword1">
+												Senha
+											</label>
+											<input
+												type="password"
+												name="password"
+												className="form-control"
+												id="exampleInputPassword1"
+												placeholder="Digite sua senha"
+												onChange={(v) =>
+													handleInput("password", v)
+												}
+												required
+											/>
+											<p className="text-danger">
+												{fieldError?.password}
+											</p>
+											{!!lengthpassword && (
+												<p
+													className="text-danger"
+													role="alert"
+												>
+													senha não pode ser menor do
+													que 6 caracteres
+												</p>
+											)}
+										</div>
+										<div className="form-group mt-2">
+											<input
+												type="password"
+												name="confirm_password"
+												className="form-control"
+												id="exampleInputPassword1"
+												placeholder="Confirme sua senha"
+												onChange={(v) =>
+													handleInput(
+														"confirm_password",
+														v
+													)
+												}
+												required
+											/>
+											<p className="text-danger">
+												{fieldError?.confirm_password}
+											</p>
+										</div>
+										<div className="mt-3">
+											<Link href="/login">
+												Já possui uma conta?
+											</Link>
+										</div>
+										<button
+											type="submit"
+											className="btn btn-primary mt-4"
+										>
+											Registrar
+										</button>
+									</form>
 								</div>
-								<div className="form-group mt-2">
-									<input
-										type="password"
-										name="confirm_password"
-										className="form-control"
-										id="exampleInputPassword1"
-										placeholder="Confirme sua senha"
-										onChange={(v) =>
-											handleInput("confirm_password", v)
-										}
-										required
-									/>
-									<p className="text-danger">
-										{fieldError?.confirm_password}
-									</p>
-								</div>
-								<div className="mt-3">
-									<Link href="/login">
-										Já possui uma conta?
-									</Link>
-								</div>
-								<button
-									type="submit"
-									className="btn btn-primary mt-4"
-								>
-									Registrar
-								</button>
-							</form>
-						</div>
+							</>
+						)}
 					</>
 				)}
 			</Elements>
