@@ -17,24 +17,23 @@ export async function getServerSideProps(context) {
 	if (!context.query.confirmation) {
 		context.res.setHeader("Location", "/");
 		context.res.statusCode = 302;
-		return;
+		return { props: { query: null } };
 	}
 
 	if (query.confirmation) {
+		let isConfirmed
 		await axios
 			.get(
 				`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
 			)
 			.then(() => {
-				return {
-					props: { query: true }
-				};
+				isConfirmed = true
 			})
 			.catch((error) => {
-				console.log(error);
-				return {
-					props: { query: false }
-				};
+				if(error.response.data.error) console.error("Not found a valid confirmation!");
+				isConfirmed = false
 			});
+
+		return { props: { query: isConfirmed } };
 	}
 }
