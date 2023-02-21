@@ -7,36 +7,28 @@ export default function ConfirmCode({ query }) {
 	const router = useRouter();
 	const [success, setSuccess] = useState(false);
 	const [error, setError] = useState(false);
-	const [emailuse, setemailUsed] = useState(false);
-	const [redirect, setRedirect] = useState(false);
-	const [loading, setLoading] = useState(false);
-	const [oninput, setOnInput] = useState(false);
-	const [values, setValues] = useState();
 
 	const handleConfirmation = async () => {
 		if (query.confirmation) {
-			setSuccess(true)
-			try {
-				await axios
-					.get(
-						`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
-					).then(() => {
-						router.push("/login")
-					})
-			} catch (error) {
-				console.log(error);
-				setSuccess(false);
-				return
-			}
+			setSuccess(true);
+			await axios
+				.get(
+					`${process.env.NEXT_PUBLIC_API_URL}/api/auth/email-confirmation?confirmation=${query.confirmation}`
+				)
+				.then(() => {
+					setSuccess(true);
+					router.push("/login");
+				})
+				.catch(() => {
+					console.log(error);
+					return;
+				});
 		}
 	};
+	handleConfirmation();
 	useEffect(() => {
 		if (!query.confirmation) {
 			router.push("/");
-		}
-		handleConfirmation();
-		if(success) {
-			//router.push("/login")
 		}
 	}, []);
 	return (
@@ -50,7 +42,9 @@ export default function ConfirmCode({ query }) {
 			) : (
 				<>
 					<div>
-						<h5 className="text-warning">Aguardando confirmação de e-mail...</h5>
+						<h5 className="text-warning">
+							Aguardando confirmação de e-mail...
+						</h5>
 					</div>
 				</>
 			)}
