@@ -162,7 +162,7 @@ export default function Questões({ session, provas }) {
 								className="form-control"
 								placeholder="Ex.: nome da questão"
 								aria-label="Small"
-								value={inputty}
+								value={inputty.replace(/_/g, " ")}
 								aria-describedby="basic-addon1 inputGroup-sizing-sm"
 								onChange={handleInputTy}
 							/>
