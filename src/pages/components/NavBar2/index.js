@@ -156,104 +156,124 @@ export default function ResponsiveExample() {
 									height="70"
 								/>
 							</a>
-							<Offcanvas.Title>UP Discursivas</Offcanvas.Title>
+							<Offcanvas.Title>
+								<h1>UP Discursivas</h1>
+							</Offcanvas.Title>
 						</Offcanvas.Header>
 						<Offcanvas.Body className="ms-5">
-							<ul className="navbar-nav ms-5">
-								<li className="nav-item mx-1 mt-2">
+							<ul className="navbar-nav ms-4">
+								<li className="nav-item mt-2">
 									<a
 										className="text-decoration-none"
 										style={{
 											fontWeight: "500",
-											color: "#d10d35"
+											color: "#d10d35",
+											fontSize: "50px"
 										}}
 										href="/assinaturas"
 									>
 										Assinar
 									</a>
 								</li>
-								<li className="nav-item mx-1 mt-2">
+								<li className="nav-item mt-2">
 									<a
 										href="/provas"
 										className="navlink text-decoration-none"
 										style={{
 											fontWeight: "500",
-											color: "#d10d35"
+											color: "#d10d35",
+											fontSize: "50px"
 										}}
 									>
 										Provas
 									</a>
 								</li>
-								<li className="nav-item mx-1 mt-2">
+								<li className="nav-item mt-2">
 									<a
 										href="/questoes"
 										className="navlink text-decoration-none"
 										style={{
 											fontWeight: "500",
-											color: "#d10d35"
+											color: "#d10d35",
+											fontSize: "50px"
 										}}
 									>
 										Questões
 									</a>
 								</li>
-								<li className="nav-item mx-1 mt-2">
+								<li className="nav-item mt-2">
 									<a
 										className="text-decoration-none"
 										style={{
 											fontWeight: "500",
-											color: "#d10d35"
+											color: "#d10d35",
+											fontSize: "50px"
 										}}
 										href="/sobre"
 									>
 										Sobre
 									</a>
 								</li>
-								<li className="nav-item mx-1 mt-4">
+							</ul>
+
+							{session ? (
+								<div className="nav-item mt-2 ms-4">
 									<a
-										className="text-decoration-none"
+										className="navlink text-decoration-none"
 										style={{
 											fontWeight: "500",
-											color: "#d10d35"
+											color: "#d10d35",
+											fontSize: "50px"
 										}}
 										href="/perfil"
 									>
-										{photo ? (
-											<>
-												<Avatar
-													sx={{
-														width: 40,
-														height: 40
-													}}
-												>
-													<img
-														src={photo}
-														alt="imagem de um avatar"
-														width="100%"
-														height="100%"
-													/>
-												</Avatar>
-											</>
-										) : (
-											<>
-												<Avatar
-													sx={{
-														width: 40,
-														height: 40
-													}}
-												>
-													<Image
-														src={Avaticon}
-														alt="imagem de um avatar"
-														width="100%"
-														height="100%"
-													/>
-												</Avatar>
-											</>
-										)}
 										Perfil
 									</a>
-								</li>
-							</ul>
+									<div className="mt-3">
+										<a
+											className="bg-danger p-2 rounded text-decoration-none"
+											style={{
+												fontWeight: "500",
+												color: "#fff",
+												fontSize: "40px"
+											}}
+											onClick={signOut}
+										>
+											Sair
+										</a>
+									</div>
+								</div>
+							) : (
+								<div className="d-flex mt-5">
+									<div className="bg-danger p-2 rounded me-3">
+										<a
+											className="text-decoration-none text-white"
+											style={{
+												fontWeight: "500",
+												color: "#000",
+												fontSize: "35px"
+											}}
+											href="/login"
+										>
+											Login
+										</a>
+									</div>
+
+									<div className="bg-danger p-2 rounded me-5">
+										<a
+											className="text-decoration-none text-white text-center"
+											style={{
+												fontWeight: "500",
+												color: "#000",
+												fontSize: "35px"
+											}}
+											href="/registrar"
+										>
+											Registrar
+										</a>
+									</div>
+								</div>
+							)}
 							{session ? <></> : <></>}
 						</Offcanvas.Body>
 					</Offcanvas>

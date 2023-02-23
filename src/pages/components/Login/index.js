@@ -84,11 +84,12 @@ export const Login = ({ session }) => {
 							name="email"
 							className={`form-control ${
 								formError && "is-invalid"
-							} `}
+							} input-font-bold`}
 							id="exampleInputEmail1"
 							aria-describedby="emailHelp"
 							onChange={(v) => handleInput("email", v)}
 							placeholder="Digite seu email"
+							style={{borderColor: "#d20c33"}}
 							required
 						/>
 						<p className="text-danger">{fieldError?.email}</p>
@@ -104,21 +105,40 @@ export const Login = ({ session }) => {
 							id="exampleInputPassword1"
 							onChange={(v) => handleInput("password", v)}
 							placeholder="Digite sua senha"
+							style={{borderColor: "#d20c33"}}
 							required
 						/>
 						<p className="text-danger">{fieldError?.password}</p>
 					</div>
 					<div className="mt-3">
-						<Link href="/esqueceu-senha" passHref>
-							Esqueceu a senha?
+						<Link href="/esqueceu-senha">
+							<p
+								style={{
+									cursor: "pointer",
+									color: "#d20c33",
+									textDecorationLine: "underline"
+								}}
+							>
+								Esqueceu a senha?
+							</p>
 						</Link>
 					</div>
-					<button type="submit" className="btn btn-primary mt-4">
+					<button type="submit" className="btn btn-danger mt-4">
 						Logar
 					</button>
 				</form>
 				<div className="mt-4">
-					<Link href="/registrar">Não tem uma conta ainda?</Link>
+					<Link href="/registrar">
+						<p
+							style={{
+								cursor: "pointer",
+								color: "#d20c33",
+								textDecorationLine: "underline"
+							}}
+						>
+							Não tem uma conta ainda?
+						</p>
+					</Link>
 				</div>
 			</div>
 		</>

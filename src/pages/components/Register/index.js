@@ -129,7 +129,7 @@ export const Register = () => {
 		try {
 			//Gets the user info that was created before
 			//Creates the user in the backend
-			setLoading(true)
+			setLoading(true);
 			await createUser({
 				variables: {
 					input: {
@@ -141,7 +141,7 @@ export const Register = () => {
 			});
 		} catch (error) {
 			console.log(error);
-			setLoading(false)
+			setLoading(false);
 			return;
 		}
 	};
@@ -204,6 +204,7 @@ export const Register = () => {
 												onChange={(v) =>
 													handleInput("username", v)
 												}
+												style={{borderColor: "#d20c33"}}
 												required
 											/>
 											<p className="text-danger">
@@ -222,6 +223,7 @@ export const Register = () => {
 												onChange={(v) =>
 													handleInput("email", v)
 												}
+												style={{borderColor: "#d20c33"}}
 												required
 											/>
 											<p className="text-danger">
@@ -241,6 +243,7 @@ export const Register = () => {
 												onChange={(v) =>
 													handleInput("password", v)
 												}
+												style={{borderColor: "#d20c33"}}
 												required
 											/>
 											<p className="text-danger">
@@ -269,6 +272,7 @@ export const Register = () => {
 														v
 													)
 												}
+												style={{borderColor: "#d20c33"}}
 												required
 											/>
 											<p className="text-danger">
@@ -277,12 +281,21 @@ export const Register = () => {
 										</div>
 										<div className="mt-3">
 											<Link href="/login">
-												Já possui uma conta?
+												<p
+													style={{
+														cursor: "pointer",
+														color: "#d20c33",
+														textDecorationLine:
+															"underline"
+													}}
+												>
+													Já possui uma conta?
+												</p>
 											</Link>
 										</div>
 										<button
 											type="submit"
-											className="btn btn-primary mt-4"
+											className="btn btn-danger mt-4"
 										>
 											Registrar
 										</button>

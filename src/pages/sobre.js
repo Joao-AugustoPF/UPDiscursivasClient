@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import emailjs from "@emailjs/browser";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, Stack, styled, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { useRef, useState } from "react";
 
@@ -28,6 +28,30 @@ const About = () => {
 			);
 		//----------------------------------
 	};
+
+	const CssTextField = styled(TextField)({
+		"& label.Mui-focused": {
+			color: "BLACK"
+		},
+		"& .MuiInput-underline:after": {
+			borderBottomColor: "white",
+			color: "white"
+		},
+		"& .MuiOutlinedInput-root": {
+			"& fieldset": {
+				borderColor: "white",
+				color: "white"
+			},
+			"&:hover fieldset": {
+				borderColor: "red",
+				color: "white"
+			},
+			"&.Mui-focused fieldset": {
+				borderColor: "red",
+				color: "white"
+			}
+		}
+	});
 
 	//Handle the input from the frontend
 
@@ -85,17 +109,17 @@ const About = () => {
 					ref={form}
 					onSubmit={sendEmail}
 				>
-					<TextField
+					<CssTextField
 						name="name"
 						onChange={handleChangeName}
 						value={name}
 						id="outlined-basic"
 						label="Nome"
 						variant="outlined"
-						className="m-2 w-50"
+						className="m-2 w-50 border rounded"
 						required
 					/>
-					<TextField
+					<CssTextField
 						name="email"
 						type="email"
 						onChange={handleChangeEmail}
@@ -103,17 +127,17 @@ const About = () => {
 						id="outlined-basic"
 						label="Seu e-mail"
 						variant="outlined"
-						className="m-2 w-50"
+						className="m-2 w-50 border rounded"
 						required
 					/>
-					<TextField
+					<CssTextField
 						name="subject"
 						onChange={handleChangeSubject}
 						value={titulo}
 						id="outlined-basic"
 						label="Titulo"
 						variant="outlined"
-						className="m-2 w-50"
+						className="m-2 w-50 border rounded"
 						required
 					/>
 					<div className="m-2 w-50">
