@@ -97,7 +97,7 @@ class Footer extends Component {
 						</section>
 					</div>
 					<div className="text-center d-flex flex-column">
-						© 2022 Copyright:
+						© 2023 Copyright:
 						<a
 							className="text-white"
 							href="https://updiscursivas.com.br/"

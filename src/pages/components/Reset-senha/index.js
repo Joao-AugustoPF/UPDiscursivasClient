@@ -66,7 +66,7 @@ export const FormResetPassword = () => {
 				},
 				{
 					headers: {
-						Authorization: `Bearer ${session?.jwt}`
+						Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_ADMIN_STRAPI}`
 					}
 				}
 			)
