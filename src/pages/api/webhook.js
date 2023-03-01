@@ -108,8 +108,9 @@ async function Webhook(req, res) {
 					}
 				);
 				console.log(usuario.data.data.updateUsersPermissionsUser[0]);
+				res.status(200).json({sucess: true});
 			}
-			res.status(200).send({sucess: true});
+			res.status(200).json({sucess: true});
 			break;
 		}
 
@@ -228,17 +229,17 @@ async function Webhook(req, res) {
 				}
 			);
 			console.log(usuario.data.data.updateUsersPermissionsUser);
-			res.status(200).send({sucess: true});
+			res.status(200).json({sucess: true});
 			break;
 		}
 		default:
 			console.log("");
-			res.send(200);
+			res.status(200).json({sucess: true});
 	}
 
 	// Return a 200 response to acknowledge receipt of the event
 	//ctx.send();
-	res.status(200).send({sucess: true});
+	res.status(200).json({sucess: true});
 }
 
 export default Webhook;
