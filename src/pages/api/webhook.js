@@ -109,7 +109,7 @@ async function Webhook(req, res) {
 				);
 				console.log(usuario.data.data.updateUsersPermissionsUser[0]);
 			}
-			res.send(200);
+			res.status(200).send({sucess: true});
 			break;
 		}
 
@@ -228,7 +228,7 @@ async function Webhook(req, res) {
 				}
 			);
 			console.log(usuario.data.data.updateUsersPermissionsUser);
-			res.send(200);
+			res.status(200).send({sucess: true});
 			break;
 		}
 		default:
@@ -238,7 +238,7 @@ async function Webhook(req, res) {
 
 	// Return a 200 response to acknowledge receipt of the event
 	//ctx.send();
-	res.send(200);
+	res.status(200).send({sucess: true});
 }
 
 export default Webhook;
