@@ -109,6 +109,7 @@ async function Webhook(req, res) {
 				);
 				console.log(usuario.data.data.updateUsersPermissionsUser[0]);
 			}
+			res.send(200);
 			break;
 		}
 
@@ -227,15 +228,17 @@ async function Webhook(req, res) {
 				}
 			);
 			console.log(usuario.data.data.updateUsersPermissionsUser);
+			res.send(200);
 			break;
 		}
 		default:
 			console.log("");
+			res.send(200);
 	}
 
 	// Return a 200 response to acknowledge receipt of the event
 	//ctx.send();
-	res.send();
+	res.send(200);
 }
 
 export default Webhook;
