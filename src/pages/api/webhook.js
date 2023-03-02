@@ -54,7 +54,7 @@ async function Webhook(req, res) {
 			endpointSecret
 		);
 	} catch (err) {
-		res.body = `Webhook Error: ${err.message}`;
+		res.json({error: `Webhook Error: ${err.message}`})
 		return;
 	}
 	const data = event.data.object;
@@ -239,7 +239,6 @@ async function Webhook(req, res) {
 
 	// Return a 200 response to acknowledge receipt of the event
 	//ctx.send();
-	res.status(200).json({sucess: true});
 }
 
 export default Webhook;
