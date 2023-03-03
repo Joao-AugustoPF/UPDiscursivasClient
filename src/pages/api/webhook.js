@@ -22,7 +22,7 @@ export const config = {
 async function Webhook(req, res) {
 	if (req.method === "POST") {
 		const sig = req.headers["stripe-signature"];
-		const reqBuffer = await buffer(req.rawBody);
+		const reqBuffer = await buffer(req.body);
 
 		let event;
 
