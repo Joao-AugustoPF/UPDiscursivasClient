@@ -22,13 +22,13 @@ export const config = {
 async function Webhook(req, res) {
 	if (req.method === "POST") {
 		const sig = req.headers["stripe-signature"];
-		const reqBuffer = await buffer(req.body);
+		//const reqBuffer = await buffer(req.body);
 
 		let event;
 
 		try {
 			event = await stripe.webhooks.constructEvent(
-				reqBuffer.toString(),
+				req.body,
 				sig,
 				endpointSecret
 			);
