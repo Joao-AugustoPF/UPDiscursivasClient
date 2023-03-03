@@ -2,6 +2,7 @@
 import { print } from "graphql";
 import { MutationSettingPlan } from "../../graphql/mutations/registerBilling";
 import Cors from "micro-cors";
+import getRawBody from "raw-body";
 const stripe = require("stripe")(
 	process.env.NEXT_PUBLIC_STRIPE_PRODUCTION_PRIVATE_KEY
 );
@@ -23,12 +24,13 @@ async function Webhook(req, res) {
 	if (req.method === "POST") {
 		const sig = req.headers["stripe-signature"];
 		//const reqBuffer = await buffer(req.body);
+		const rawBody = await getRawBody(req);
 
 		let event;
 
 		try {
 			event = await stripe.webhooks.constructEvent(
-				req.body,
+				rawBody,
 				sig,
 				endpointSecret
 			);
